@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "s3-bucket-cli"
+version = "1.0.0"
+description = "A practical S3 CLI with content-based media validation"
+authors = ["Guga Kordzakhia"]
+readme = "README.md"
+packages = [{include = "s3_bucket_cli", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.40"
+python-dotenv = "^1.1"
+click = "^8.1"
+requests = "^2.32"
+filetype = "^1.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4"
+pillow = "^12.0"
+ruff = "^0.14"
+
+[tool.poetry.scripts]
+s3-cli = "s3_bucket_cli.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
